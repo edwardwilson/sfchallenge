@@ -581,7 +581,9 @@ namespace OrderBook
                                         services => services
                                             .AddSingleton<HttpClient>(new HttpClient())
                                             .AddSingleton<StatefulServiceContext>(serviceContext)
-                                            .AddSingleton<OrderBook>(this))
+                                            .AddSingleton<OrderBook>(this)
+                                            .AddSingleton<ITelemetryInitializer>(sp => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
+                                            )
                                     .UseContentRoot(Directory.GetCurrentDirectory())
                                     .UseStartup<Startup>()
                                     .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseReverseProxyIntegration)
