@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="ExchangeType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="ExchangeType" ApplicationTypeVersion="1.3.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <!-- Enter you team's name-->
     <Parameter Name="TeamName" DefaultValue="team16-ldn0618" />
@@ -35,11 +35,11 @@
   </Parameters>
   <!-- Import Service Manifests -->
   <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="MongoGuestExePkg" ServiceManifestVersion="1.0.0" />
+    <ServiceManifestRef ServiceManifestName="MongoGuestExePkg" ServiceManifestVersion="1.3.0" />
     <ConfigOverrides />
   </ServiceManifestImport>
   <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="LoggerPkg" ServiceManifestVersion="1.0.0" />
+    <ServiceManifestRef ServiceManifestName="LoggerPkg" ServiceManifestVersion="1.3.0" />
     <ConfigOverrides>
       <ConfigOverride Name="Config">
         <Settings>
@@ -52,11 +52,11 @@
     </ConfigOverrides>
   </ServiceManifestImport>
   <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="GatewayPkg" ServiceManifestVersion="1.0.0" />
+    <ServiceManifestRef ServiceManifestName="GatewayPkg" ServiceManifestVersion="1.3.0" />
     <ConfigOverrides />
   </ServiceManifestImport>
   <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="UserStorePkg" ServiceManifestVersion="1.0.0" />
+    <ServiceManifestRef ServiceManifestName="UserStorePkg" ServiceManifestVersion="1.3.0" />
     <ConfigOverrides>
       <ConfigOverride Name="Config">
         <Settings>
@@ -72,7 +72,7 @@
     </Policies>
   </ServiceManifestImport>
   <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="FulfillmentPkg" ServiceManifestVersion="1.0.0" />
+    <ServiceManifestRef ServiceManifestName="FulfillmentPkg" ServiceManifestVersion="1.3.0" />
     <ConfigOverrides>
       <ConfigOverride Name="Config">
         <Settings>
@@ -87,7 +87,7 @@
     </ConfigOverrides>
   </ServiceManifestImport>
   <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="OrderBookPkg" ServiceManifestVersion="1.0.0" />
+    <ServiceManifestRef ServiceManifestName="OrderBookPkg" ServiceManifestVersion="1.3.0" />
     <ConfigOverrides>
       <ConfigOverride Name="Config">
         <Settings>
@@ -130,7 +130,14 @@
     <!-- Create OrderBook Service -->
     <Service Name="OrderBook">
       <StatefulService ServiceTypeName="OrderBookType" TargetReplicaSetSize="[OrderBook_TargetReplicaSetSize]" MinReplicaSetSize="[OrderBook_MinReplicaSetSize]">
-        <SingletonPartition />
+        <NamedPartition>
+          <Partition Name="GBPUSD" />
+          <Partition Name="GBPEUR" />
+          <Partition Name="USDGBP" />
+          <Partition Name="USDEUR" />
+          <Partition Name="EURGBP" />
+          <Partition Name="EURUSD" />
+        </NamedPartition>
       </StatefulService>
     </Service>
     <!-- Create Logger Service -->
