@@ -241,7 +241,9 @@ namespace Logger
                                         services => services
                                             .AddSingleton<StatefulServiceContext>(serviceContext)
                                             .AddSingleton<IReliableStateManager>(this.StateManager)
-                                            .AddSingleton<Logger>(this))
+                                            .AddSingleton<Logger>(this)
+                                            .AddSingleton<ITelemetryInitializer>(sp => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
+                                            )
                                     .UseContentRoot(Directory.GetCurrentDirectory())
                                     .UseStartup<Startup>()
                                     .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseReverseProxyIntegration)
