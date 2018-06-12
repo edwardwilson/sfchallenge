@@ -248,6 +248,7 @@ namespace Logger
                                     .UseStartup<Startup>()
                                     .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseReverseProxyIntegration)
                                     .UseUrls(url)
+                                    .UseApplicationInsights()
                                     .Build();
                     }))
             };
