@@ -7,7 +7,7 @@
     <Parameter Name="ReverseProxy_Port" DefaultValue="19081" />
     <!-- Logger parameters -->
     <Parameter Name="Logger_MinReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="Logger_PartitionCount" DefaultValue="5" />
+    <Parameter Name="Logger_PartitionCount" DefaultValue="1" />
     <Parameter Name="Logger_TargetReplicaSetSize" DefaultValue="3" />
     <!-- MongoDB parameters -->
     <Parameter Name="MongoGuestExe_InstanceCount" DefaultValue="1" />
@@ -17,7 +17,7 @@
     <Parameter Name="Gateway_InstanceCount" DefaultValue="1" />
     <!-- UserStore parameters -->
     <Parameter Name="UserStore_MinReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="UserStore_PartitionCount" DefaultValue="5" />
+    <Parameter Name="UserStore_PartitionCount" DefaultValue="1" />
     <Parameter Name="UserStore_TargetReplicaSetSize" DefaultValue="3" />
     <!-- Fulfillment parameters -->
     <Parameter Name="Fulfillment_MinReplicaSetSize" DefaultValue="3" />
