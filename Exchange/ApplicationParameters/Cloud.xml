@@ -15,7 +15,7 @@
     <Parameter Name="OrderBook_MinReplicaSetSize" Value="3" />
     <Parameter Name="OrderBook_TargetReplicaSetSize" Value="3" />
     <Parameter Name="ReverseProxy_Port" Value="19081" />
-    <Parameter Name="MongoGuestExe_InstanceCount" Value="0" />
+    <Parameter Name="MongoGuestExe_InstanceCount" Value="-1" />
     <Parameter Name="MongoConnectionString" Value="mongodb://team16-ldn0618:Kro8121T5klznFENqZka0PDWQeo0WmjMvM1SYsv5DUvLyEnRLHHTQzmVQdU1UAtPflvDqoM7jqzXYH0C9FvZGw==@team16-ldn0618.documents.azure.com:10255/?ssl=true&amp;replicaSet=globaldb" />
     <Parameter Name="MongoEnableSSL" Value="true" />
   </Parameters>
