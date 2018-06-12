@@ -52,6 +52,7 @@ namespace Gateway
                                     .UseApplicationInsights()
                                     .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseReverseProxyIntegration)
                                     .UseUrls(url)
+                                    .UseApplicationInsights()
                                     .Build();
                     }))
             };
